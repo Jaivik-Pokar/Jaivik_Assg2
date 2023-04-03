@@ -8,6 +8,12 @@ pipeline {
                 sh 'http-server'
             }
         }
+        
+        stage('Stop') {
+            steps {
+                sh 'kill $(lsof -t -i:8080)'
+            }
+        }
     }
 }
 
